@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,12 +25,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7ggv#%z8c96fhd-lz+vb!u%pdg(b-s9o*-mo6gt*oehp@+lo(w'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -80,8 +82,12 @@ WSGI_APPLICATION = 'mpesa.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
+        'PASSWORD': config('DATABASE_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
     }
 }
 
@@ -124,11 +130,11 @@ USE_TZ = True
 
 
 
-MEDIA_URL = "/static/"
+MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "staticfilesa"))
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-cdn-local")
 
 
@@ -147,8 +153,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-
-CCRS_REPLACE_HTTPS_REFERER = False
+CORS_REPLACE_HTTPS_REFERER = False
 HOST_SCHEME = "http://"
 SECURE_PROXY_SSL_HEADER = None
 SECURE_SSL_REDIRECT = False
@@ -157,3 +162,5 @@ CSRF_COOKIE_SECURE = False
 SECURE_HSTS_SECONDS = None
 SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 SECURE_FRAME_DENY = False
+
+IS_TESTING = False

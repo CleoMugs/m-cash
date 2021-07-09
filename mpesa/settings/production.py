@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["honest-marks-16139.herokuapp.com",]
 
 
 # Application definition
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -116,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -133,7 +135,7 @@ MEDIA_URL = "/static/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "staticfilesa"))
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "staticfiles"))
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-cdn-local")
 
 
@@ -154,7 +156,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-CCRS_REPLACE_HTTPS_REFERER = True
+CORS_REPLACE_HTTPS_REFERER = True
 HOST_SCHEME = "https://"
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_SSL_REDIRECT = True
@@ -163,3 +165,10 @@ SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 1000000
 SECURE_FRAME_DENY = True
+
+
+
+from mpesa.aws.conf import *
+
+
+
