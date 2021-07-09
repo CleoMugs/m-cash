@@ -30,7 +30,9 @@ expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")
 AWS_HEADERS = {
     "Expires": expires,
     "Cache-Control": "max-age=%d" % (int(two_months.total_seconds()),),
-}import datetime
+}
+
+import datetime
 
 from decouple import config
 
