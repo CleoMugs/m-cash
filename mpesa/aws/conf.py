@@ -11,7 +11,7 @@ AWS_PRELOAD_METADATA = True
 AWS_QUERYSTRING_AUTH = False
 
 AWS_LOCATION = 'static' # temporary
-AWS_DEFAULT_ACL = 'public-read' # temporary
+AWS_DEFAULT_ACL = None # temporary
 
 DEFAULT_FILE_STORAGE = "mpesa.aws.utils.MediaRootS3BotoStorage"
 STATICFILES_STORAGE = "mpesa.aws.utils.StaticRootS3BotoStorage"
