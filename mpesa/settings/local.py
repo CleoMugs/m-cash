@@ -13,7 +13,7 @@ import os
 from decouple import config
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
-print(get_random_secret_key)
+#print(get_random_secret_key)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 #BASE_DIR = Path(__file__).resolve().parent.parent
@@ -137,7 +137,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-cdn-local")
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-local")
 
 
 

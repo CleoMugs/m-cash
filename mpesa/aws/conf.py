@@ -10,6 +10,9 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_PRELOAD_METADATA = True
 AWS_QUERYSTRING_AUTH = False
 
+AWS_LOCATION = 'static' # temporary
+AWS_DEFAULT_ACL = 'public-read' # temporary
+
 DEFAULT_FILE_STORAGE = "mpesa.aws.utils.MediaRootS3BotoStorage"
 STATICFILES_STORAGE = "mpesa.aws.utils.StaticRootS3BotoStorage"
 
@@ -32,6 +35,8 @@ AWS_HEADERS = {
     "Cache-Control": "max-age=%d" % (int(two_months.total_seconds()),),
 }
 
+
+'''
 import datetime
 
 from decouple import config
@@ -64,6 +69,6 @@ AWS_HEADERS = {
     "Expires": expires,
     "Cache-Control": "max-age=%d" % (int(two_months.total_seconds()),),
 }
-
+'''
 
  

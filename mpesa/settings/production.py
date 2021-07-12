@@ -89,8 +89,9 @@ DATABASES = {
 }
 
 
-
 import dj_database_url
+
+
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 DATABASES['default']["CONN_MAX_AGE"] = 500
@@ -133,10 +134,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 
+STATIC_URL = '/static/'
+
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-cdn-local")
 
