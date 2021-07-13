@@ -17,7 +17,7 @@ DEFAULT_FILE_STORAGE = "mpesa.aws.utils.MediaRootS3BotoStorage"
 STATICFILES_STORAGE = "mpesa.aws.utils.StaticRootS3BotoStorage"
 
 
-AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
+AWS_STORAGE_BUCKET_NAME = "mpesa-bucket" #config("AWS_STORAGE_BUCKET_NAME")
 S3DIRECT_REGION = "eu-west-2"
 
 S3_URL = "//%s.s3.amazonaws.com/" % AWS_STORAGE_BUCKET_NAME
