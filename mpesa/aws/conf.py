@@ -13,18 +13,22 @@ AWS_QUERYSTRING_AUTH = False
 AWS_LOCATION = 'static' # temporary
 AWS_DEFAULT_ACL = None # temporary
 
-DEFAULT_FILE_STORAGE = "mpesa.aws.utils.MediaRootS3BotoStorage"
-STATICFILES_STORAGE = "mpesa.aws.utils.StaticRootS3BotoStorage"
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-AWS_STORAGE_BUCKET_NAME = "mpesa-bucket" #config("AWS_STORAGE_BUCKET_NAME")
+#DEFAULT_FILE_STORAGE = 'mpesa.aws.utils.MediaRootS3BotoStorage'
+#STATICFILES_STORAGE = 'mpesa.aws.utils.StaticRootS3BotoStorage'
+
+
+AWS_STORAGE_BUCKET_NAME = 'mpesa-bucket' #config("AWS_STORAGE_BUCKET_NAME")
 S3DIRECT_REGION = "eu-west-2"
 
 S3_URL = "//%s.s3.amazonaws.com/" % AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = "//%s.s3.amazonaws.com/media/" % AWS_STORAGE_BUCKET_NAME
 MEDIA_ROOT = MEDIA_URL
 STATIC_URL = S3_URL + "static/"
-ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 two_months = datetime.timedelta(days=61)
 date_two_months_later = datetime.date.today() + two_months
