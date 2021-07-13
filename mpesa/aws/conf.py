@@ -13,12 +13,12 @@ AWS_QUERYSTRING_AUTH = False
 AWS_LOCATION = 'static' # temporary
 AWS_DEFAULT_ACL = None # temporary
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-#DEFAULT_FILE_STORAGE = 'mpesa.aws.utils.MediaRootS3BotoStorage'
-#STATICFILES_STORAGE = 'mpesa.aws.utils.StaticRootS3BotoStorage'
+DEFAULT_FILE_STORAGE = 'mpesa.aws.utils.MediaRootS3BotoStorage'
+STATICFILES_STORAGE = 'mpesa.aws.utils.StaticRootS3BotoStorage'
 
 
 AWS_STORAGE_BUCKET_NAME = 'mpesa-bucket' #config("AWS_STORAGE_BUCKET_NAME")
